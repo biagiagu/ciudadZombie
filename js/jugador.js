@@ -12,7 +12,14 @@ var Jugador = {
   vidas: 5,
   // Hay que agregar lo que falte al jugador: movimientos, perdida de vidas,
   // y todo lo que haga falta para que cumpla con sus responsabilidades
-  mover: function(){
+  mover: function(x, y, sprite, ancho, alto){
+
+    this.x+=x;
+    this.y+=y;
+    this.sprite=sprite;
+    this.ancho=ancho;
+    this.alto=alto;
+
 
   },
 

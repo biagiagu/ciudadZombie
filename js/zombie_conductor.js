@@ -6,7 +6,7 @@ del ZombieCaminante que eran los mismos. */
 
 var ZombieConductor = function(sprite, x, y, ancho, alto, velocidad, rangoMov/*, parametro/s extra de ZombieConductor*/) {
   /* Completar constructor a partir de Enemigo */
-  //Enemigo.call(/* ... */);
+  //Enemigo.call(/* ... */); trae la herencia del objeto Enemigo
   /* No olvidar agregar la/s propiedad/es unicas de ZombieConductor necesarias */
 }
 
