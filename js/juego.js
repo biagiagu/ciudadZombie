@@ -20,7 +20,11 @@ var Juego = {
   obstaculosCarretera: [
     /*Aca se van a agregar los obstaculos visibles. Tenemos una valla horizontal
     de ejemplo, pero podras agregar muchos mas. */
-    new Obstaculo("imagenes/valla_horizontal.png", 70, 430, 30, 30, 1)
+    new Obstaculo("imagenes/valla_horizontal.png", 70, 430, 30, 30, 1),
+    new Obstaculo("imagenes/valla_horizontal.png", 100, 430, 30, 30, 1),
+    new Obstaculo("imagenes/valla_horizontal.png", 130, 430, 30, 30, 1),
+    new Obstaculo("imagenes/valla_horizontal.png", 160, 430, 30, 30, 1)
+
   ],
   /* Estos son los bordes con los que se puede chocar, por ejemplo, la vereda.
    Ya estan ubicados en sus lugares correspondientes. Ya aparecen en el mapa, ya
@@ -43,7 +47,7 @@ var Juego = {
   ],
   // Los enemigos se agregaran en este arreglo.
   enemigos: [
-	  new ZombieCaminante("imagenes/zombie1.png", 100, 100, 10, 10, 2, {desdeX: 0, hastaX: 961, desdeY:0, hastaY:577})
+    new ZombieCaminante("imagenes/zombie1.png", 100, 100, 10, 10, 2, {desdeX:70, hastaX: 200, desdeY:100, hastaY:200})
   ]
 };
 
