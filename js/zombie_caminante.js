@@ -14,7 +14,7 @@ ZombieCaminante.prototype = Object.create(Enemigo.prototype);
 ZombieCaminante.prototype.constructor = ZombieCaminante;
 
 ZombieCaminante.prototype.mover = function() {
-  /* Los movimientos estan basados en un numero aleatorio
+  /* Los movimientos estan basados en un numero aleatorio, si el numero es menor a 5 camina hacia arriba, si el numero es mayor a 5 camina hacia abajo
   La direccion horizontal es siempre la misma y va ondulando verticalmente.
   Esto hasta llegar a sus limites, donde se invierte su direccion horizontal */
   if (Math.random() < 0.5) {

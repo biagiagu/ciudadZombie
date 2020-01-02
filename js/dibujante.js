@@ -5,11 +5,12 @@ No tenes que preocuparte por este archivo, solo saber como usar sus funciones. *
 
 var Dibujante = {
   canvas: document.createElement('canvas'),
-
+  // esta funcion borra cada fotograma antes de dibujar nuevamente el próximo
   borrarAreaDeJuego: function () {
     this.canvas.getContext('2d').clearRect(0, 0, this.canvas.width, this.canvas.height);
   },
 
+  
   inicializarCanvas: function (anchoCanvas, altoCanvas) {
     this.canvas.width = anchoCanvas;
     this.canvas.height = altoCanvas;
