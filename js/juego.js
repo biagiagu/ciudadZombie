@@ -28,13 +28,17 @@ var Juego = {
     new Obstaculo("imagenes/valla_horizontal.png", 160, 430, 30, 15, 0.5),
     new Obstaculo("imagenes/valla_horizontal.png", 790, 160, 30, 15, 0.5),
     new Obstaculo("imagenes/valla_horizontal.png", 830, 220, 30, 15, 0.5),
-    new Obstaculo("imagenes/valla_horizontal.png", 790, 300, 30, 15, 0.5),
+	new Obstaculo("imagenes/valla_horizontal.png", 790, 300, 30, 15, 0.5),
+	new Obstaculo("imagenes/valla_horizontal.png", 500, 380, 30, 15, 0.5),
+	new Obstaculo("imagenes/valla_horizontal.png", 850, 360, 30, 15, 0.5),
+
     //Vallas verticales
-    new Obstaculo("imagenes/valla_vertical.png", 235, 460, 15, 30, 0.5),
+	new Obstaculo("imagenes/valla_vertical.png", 235, 460, 15, 30, 0.5),
+	new Obstaculo("imagenes/valla_vertical.png", 400, 470, 15, 30, 0.5),
     //Baches
     new Obstaculo("imagenes/bache.png", 400, 440, 20, 20, 0.3),
     new Obstaculo("imagenes/bache.png", 470, 470, 20, 20, 0.3),
-    new Obstaculo("imagenes/bache.png", 470, 400, 20, 20, 0.3),
+    new Obstaculo("imagenes/bache.png", 470, 390, 20, 20, 0.3),
 
     new Obstaculo("imagenes/bache.png", 340, 120, 20, 20, 0.3),
     new Obstaculo("imagenes/bache.png", 430, 80, 20, 20, 0.3),
@@ -153,7 +157,35 @@ var Juego = {
       hastaX: 550,
       desdeY: 190,
       hastaY: 250
-    }),
+	}),
+
+	
+	new ZombieCaminante("imagenes/zombie1.png", 770, 200, 10, 10, 1, {
+		desdeX: 760,
+		hastaX: 880,
+		desdeY: 80,
+		hastaY: 360
+	  }),new ZombieCaminante("imagenes/zombie2.png", 800, 250, 10, 10, 0.25, {
+		desdeX: 760,
+		hastaX: 880,
+		desdeY: 80,
+		hastaY: 360
+	  }),new ZombieCaminante("imagenes/zombie3.png", 850, 350, 10, 10, 0.25, {
+		desdeX: 760,
+		hastaX: 880,
+		desdeY: 80,
+		hastaY: 360
+	  }),new ZombieCaminante("imagenes/zombie4.png", 780, 300, 10, 10, 0.5, {
+		desdeX: 760,
+		hastaX: 880,
+		desdeY: 80,
+		hastaY: 360
+	  }),new ZombieCaminante("imagenes/zombie1.png", 780, 350, 10, 10, 0.25, {
+		desdeX: 760,
+		hastaX: 880,
+		desdeY: 80,
+		hastaY: 360
+	  }),
 
     //zombies en trenes
     new ZombieConductor(
@@ -185,7 +217,47 @@ var Juego = {
       -6,
       { desdeX: 350, hastaX: 350, desdeY: 0, hastaY: 572 },
       "v"
-    )
+	),
+	new ZombieConductor(
+		"imagenes/auto_verde_derecha.png",
+		70,
+		70,
+		30,
+		15,
+		2,
+		{ desdeX: 70, hastaX: 160, desdeY: 70, hastaY: 70 },
+		"h"
+	  ),
+	  new ZombieConductor(
+		"imagenes/auto_verde_derecha.png",
+		70,
+		390,
+		30,
+		15,
+		2,
+		{ desdeX: 70, hastaX: 430, desdeY: 390, hastaY: 390 },
+		"h"
+	  ),
+	  new ZombieConductor(
+		"imagenes/auto_verde_derecha.png",
+		850,
+		480,
+		30,
+		15,
+		1,
+		{ desdeX: 770, hastaX: 850, desdeY: 480, hastaY: 480 },
+		"h"
+	  ),
+	  new ZombieConductor(
+		"imagenes/auto_verde_derecha.png",
+		770,
+		410,
+		30,
+		15,
+		1,
+		{ desdeX: 770, hastaX: 850, desdeY: 410, hastaY: 410 },
+		"h"
+	  ),
   ]
 };
 
@@ -283,6 +355,13 @@ Juego.capturarMovimiento = function(tecla) {
     sprite = "imagenes/auto_rojo_abajo.png";
     ancho = 15;
     alto = 30;
+  }else {
+	movX = 0;
+  	movY = 0;
+	velocidad = this.jugador.velocidad;
+	sprite=this.jugador.sprite;
+	ancho=this.jugador.ancho;
+	alto=this.jugador.alto;  
   }
 
   // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
@@ -403,7 +482,7 @@ Juego.chequearColisiones = function(x, y) {
 
       puedeMoverse = false;
       obstaculo.chocar(this.jugador);
-      obstaculo.potencia = 0;
+
     }
   }, this);
   return puedeMoverse;
