@@ -322,55 +322,38 @@ Juego.update = function() {
     this.moverEnemigos();
   }
 };
+
 // Captura las teclas y si coincide con alguna de las flechas tiene que
 // hacer que el jugador principal se mueva
 Juego.capturarMovimiento = function(tecla) {
   var movX = 0;
   var movY = 0;
   var velocidad = this.jugador.velocidad;
+  
 
-  // variable que indica que imagen de AutoRojo debe dibujar y el tamaño de la misma
-  var sprite = "";
-  var ancho = 0;
-  var alto = 0;
-
-  // El movimiento esta determinado por la velocidad del jugador
+  //El movimiento esta determinado por la velocidad del jugador
   if (tecla == "izq") {
     movX = -velocidad;
-    sprite = "imagenes/auto_rojo_izquierda.png";
-    ancho = 30;
-    alto = 15;
+    
   } else if (tecla == "arriba") {
     movY = -velocidad;
-    sprite = "imagenes/auto_rojo_arriba.png";
-    ancho = 15;
-    alto = 30;
+    
   } else if (tecla == "der") {
     movX = velocidad;
-    sprite = "imagenes/auto_rojo_derecha.png";
-    ancho = 30;
-    alto = 15;
+    
   } else if (tecla == "abajo") {
     movY = velocidad;
-    sprite = "imagenes/auto_rojo_abajo.png";
-    ancho = 15;
-    alto = 30;
-  }else {
-	movX = 0;
-  	movY = 0;
-	velocidad = this.jugador.velocidad;
-	sprite=this.jugador.sprite;
-	ancho=this.jugador.ancho;
-	alto=this.jugador.alto;  
+    
   }
 
+
   // Si se puede mover hacia esa posicion hay que hacer efectivo este movimiento
-  if (this.chequearColisiones(movX + this.jugador.x, movY + this.jugador.y)) {
+  if (this.chequearColisiones(this.jugador.x + movX, this.jugador.y + movY)) {
     /* Aca tiene que estar la logica para mover al jugador invocando alguno
         de sus metodos  */
 
-    /* COMPLETAR */
-    this.jugador.mover(movX, movY, sprite, ancho, alto);
+	/* COMPLETAR */
+	this.jugador.mover(movX, movY);
   }
 };
 
